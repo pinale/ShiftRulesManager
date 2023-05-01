@@ -1,0 +1,8 @@
+v   Alert in caso di superamento delle ore contrattuali del dipendente (tabella AnagContratto --> AnagDipendente)
+v   Ogni dipendente può avere il turno contemporaneamente su uno o più reparti dello stesso pv, anche nel medesimo orario. 
+    Alert in caso venga inserito il dipendente su più reparti, nello stesso orario ma in punti di vendita diversi
+v   Ogni dipendente non può avere più di 13 ore giornaliere
+v   Ogni 7 giorni, ci devono essere almeno 24 ore consecutive libere (1gg settimanale di riposo di 24h) 
+-   Deve essere prevista la possibilità della domenica a turnazione per dipendente (una si e una no, oppure una domenica al mese etc...da parametrizzare)
+v   Orari Part Time: almeno min 3h al giorno, max ?? (dipende dal tipo di part time)
+v   Devono esserci 11h di stacco tra due turni
