@@ -44,8 +44,9 @@ namespace ShiftRulesManager.BLL
                         {
                             EventId = evt.EventId,
                             Level = MessageLevel.Error,
-                            Message = $"Evento: [({evt.EventId}) {evt.Title}] - " +
-                                      $"Data Fine Evento [{evt.End}] <= Data Inizio Evento [{evt.Start}]."
+                            //Message = $"Evento: [({evt.EventId}) {evt.Title}] - " +
+                            //          $"Data Fine Evento [{evt.End}] <= Data Inizio Evento [{evt.Start}]."
+                            Message = $"Il dipendente [{context.MasterData.EmployeeName}] ha un turno con Data Fine [{evt.End}] <= di Data Inizio [{evt.Start}]."
                         });
                         evt.CheckStatus = CheckStatusEnum.KO;
                     }
@@ -55,8 +56,9 @@ namespace ShiftRulesManager.BLL
                         {
                             EventId = evt.EventId,
                             Level = MessageLevel.Warning,
-                            Message = $"Evento: [({evt.EventId}) {evt.Title}] - " +
-                                      $"Periodo [{evt.Start}-{evt.End}] non incluso nell'intervallo di analisi."
+                            //Message = $"Evento: [({evt.EventId}) {evt.Title}] - " +
+                            //          $"Periodo [{evt.Start}-{evt.End}] non incluso nell'intervallo di analisi."
+                            Message = $"Il dipendente {context.MasterData.EmployeeName} ha il turno [{evt.Start}-{evt.End}] non compreso nella settimana in analisi."
                         });
                         evt.CheckStatus = CheckStatusEnum.KO;
                     }
@@ -160,8 +162,9 @@ namespace ShiftRulesManager.BLL
                             {
                                 EventId = evt.EventId,
                                 Level = MessageLevel.Error,
-                                Message = $"Evento: [({evt.EventId}) {evt.Title}], Periodo: [{evt.Start}-{evt.End}] - " +
-                                          $"Sovrapposizione con evento: [({previousEvt.EventId}) {previousEvt.Title}], Periodo: [{previousEvt.Start}-{previousEvt.End}]."
+                                //Message = $"Evento: [({evt.EventId}) {evt.Title}], Periodo: [{evt.Start}-{evt.End}] - " +
+                                //          $"Sovrapposizione con evento: [({previousEvt.EventId}) {previousEvt.Title}], Periodo: [{previousEvt.Start}-{previousEvt.End}]."
+                                Message = $"Il dipendente {context.MasterData.EmployeeName} ha il turno: [{evt.Start}-{evt.End}] in sovrapposizione con il turno: [{previousEvt.Start}-{previousEvt.End}]."
                             });
                             evt.CheckStatus = CheckStatusEnum.KO;
                         }
@@ -284,7 +287,8 @@ namespace ShiftRulesManager.BLL
                             {
                                 EventId = 0,
                                 Level = MessageLevel.Error,
-                                Message = $"Il dipendente [{context.EmployeeId}] ha un eccesso di ore assegnate [{days[key]}/{maxDailyHours}] per il giorno [{key.ToString("d")}]"
+                                //Message = $"Il dipendente [{context.EmployeeId}] ha un eccesso di ore assegnate [{days[key]}/{maxDailyHours}] per il giorno [{key.ToString("d")}]"
+                                Message = $"Il dipendente [{context.MasterData.EmployeeName}] ha un eccesso di ore assegnate [{days[key]}/{maxDailyHours}] nel giorno [{key.ToString("d")}]"
                             });
                         }
                         else if (days[key] < minDailyHours)
@@ -293,7 +297,7 @@ namespace ShiftRulesManager.BLL
                             {
                                 EventId = 0,
                                 Level = MessageLevel.Error,
-                                Message = $"Il dipendente [{context.EmployeeId}] ha una carenza di ore assegnate [{days[key]}/{minDailyHours}] per il giorno [{key.ToString("d")}]"
+                                Message = $"Il dipendente [{context.MasterData.EmployeeName}] ha una carenza di ore assegnate [{days[key]}/{minDailyHours}] nel giorno [{key.ToString("d")}]"
                             });
                         }
                     }
@@ -362,8 +366,9 @@ namespace ShiftRulesManager.BLL
                             {
                                 EventId = 0,
                                 Level = MessageLevel.Error,
-                                Message = $"Il dipendente [{context.EmployeeId}] non usufruisce del minimo n.di ore [{minGap}] tra i giorni " +
-                                          $"[{prevDate.Value.ToString("d")}] e [{key.ToString("d")})"
+                                //Message = $"Il dipendente [{context.EmployeeId}] non usufruisce del minimo n.di ore [{minGap}] tra i giorni " +
+                                //          $"[{prevDate.Value.ToString("d")}] e [{key.ToString("d")})"
+                                Message = $"Il dipendente [{context.MasterData.EmployeeName}] non effettua il minimo n.di ore [{minGap}] di pausa tra i turni [{prevDate.Value.ToString("d")}] e [{key.ToString("d")})"
                             });
                         }
                     }
@@ -439,7 +444,8 @@ namespace ShiftRulesManager.BLL
                     {
                         EventId = 0,
                         Level = MessageLevel.Error,
-                        Message = $"Il dipendente [{context.EmployeeId}] non usufruisce del minimo n.di ore [{minRest}] settimanali."
+                        //Message = $"Il dipendente [{context.EmployeeId}] non usufruisce del minimo n.di ore [{minRest}] settimanali."
+                        Message = $"Il dipendente [{context.MasterData.EmployeeName}] non effettua il minimo n.di ore [{minRest}] settimanali."
                     });
                 }
 

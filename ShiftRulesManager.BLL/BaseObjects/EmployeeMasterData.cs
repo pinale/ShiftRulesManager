@@ -7,6 +7,7 @@
         }
 
         public int EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
         public double? MaxWeeklyHours { get; set; }
         public double? MinDailyHours { get; set; }
         public double? MaxDailyHours { get; set; }

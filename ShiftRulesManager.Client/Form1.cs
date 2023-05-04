@@ -202,6 +202,7 @@ namespace ShiftRulesManager.FrontEnd
                 new EmployeeMasterData()
                 {
                     EmployeeId = 1,
+                    EmployeeName="Mario Rossi",
                     MaxDailyHours = 13,
                     MinDailyHours = 3,
                     MaxWeeklyHours = 40,
@@ -211,6 +212,7 @@ namespace ShiftRulesManager.FrontEnd
                 new EmployeeMasterData()
                 {
                     EmployeeId = 2,
+                    EmployeeName="Carlo Bianchi",
                     MaxDailyHours = 5,
                     MinDailyHours = 3,
                     MaxWeeklyHours = 25,

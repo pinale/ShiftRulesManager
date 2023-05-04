@@ -43,11 +43,10 @@ namespace ShiftRulesManager.BLL
                 var b = rule.IsValid(Context);
                 if (!b)
                 {
-                    ValidationResults.Add(new ValidationMessage() { Level = MessageLevel.KO, Message = $"La regola '{rule.RuleName}' è violata" });
                     ValidationResults.AddRange(rule.ValidationMessages);
                 }
                 else
-                    ValidationResults.Add(new ValidationMessage() { Level = MessageLevel.OK, Message = $"La regola '{rule.RuleName}' è convalidata" });
+                    ValidationResults.Add(new ValidationMessage() { Level = MessageLevel.OK });
             }
 
             return ValidationResults;
