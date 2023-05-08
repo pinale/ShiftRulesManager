@@ -421,7 +421,7 @@ namespace ShiftRulesManager.BLL
                     }
                 }
 
-                bool bCheck = false;
+                bool bCheck = days.Keys.Count() > 1 ? false: true;
                 var hh = 0.0;
 
                 DateTime? prevDate = null;
@@ -445,7 +445,7 @@ namespace ShiftRulesManager.BLL
                         EventId = 0,
                         Level = MessageLevel.Error,
                         //Message = $"Il dipendente [{context.EmployeeId}] non usufruisce del minimo n.di ore [{minRest}] settimanali."
-                        Message = $"Il dipendente [{context.MasterData.EmployeeName}] non effettua il minimo n.di ore [{minRest}] settimanali."
+                        Message = $"Il dipendente [{context.MasterData.EmployeeName}] non effettua il minimo n. ore di riposo [{minRest}] settimanali."
                     });
                 }
 
